@@ -1,6 +1,6 @@
 # Flux Rec
 
-Flux Rec is the reproducible source and local-hosting stack for the legacy PC client used by this project. It contains the local RecNet-compatible API, the BepInEx IL2CPP compatibility plugin, the preloader patcher source, the Orientation loading asset, configuration templates, and Windows install/start scripts.
+Flux Rec is the reproducible source and local-hosting stack for the legacy PC client used by this project. It contains the local RecNet-compatible API, the BepInEx IL2CPP compatibility plugin, the preloader patcher source, Orientation loading integration, configuration templates, and Windows install/start scripts.
 
 ## What is in this repository
 
@@ -43,4 +43,3 @@ Run `scripts\Test-FluxRec.ps1` to compile and smoke-test the backend and build b
 Server settings live in `.env`; plugin settings live in the game's `BepInEx\config\net.rec.plugin.cfg`. Photon and Firebase identifiers are deployment configuration, not source defaults. Admin access is only granted when `OPENREC_ADMIN_EMAIL` is configured and the matching Firebase email is verified.
 
 This project is an independent compatibility effort and is not affiliated with or endorsed by Rec Room Inc. Do not use it to bypass access controls or distribute software/assets you do not have permission to share.
-
