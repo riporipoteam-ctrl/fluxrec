@@ -1,0 +1,47 @@
+[Advanced]
+Enabled Advanced Settings = false
+Photon NameServer =
+Photon NameServer Port = 0
+Debug = false
+Simulate DUID Mismatch = false
+Suppress DUID Mismatch = true
+Corrupt Stored DUID = false
+Restore Stored DUID = false
+DeviceId Response Override =
+DeviceId Response Status = 200
+
+[Orientation]
+Bypass Stock Initial Scene Load = true
+Skip Stock Post Load State = true
+Log Scene Diagnostics = false
+Force Local Room Scene Load = true
+Direct Orientation Scene Load = true
+Orientation Scene Name = Orientation_additive
+Orientation Additive Scene Name = Orientation_Scene1
+Use Offline Room Travel = false
+Use Boot Local Player To Room = false
+Big Data Gate Seconds = 1.5
+Start Player Spawn = true
+Show Loading Screen = true
+Loading Screen Label = ^Orientation
+Offline Mouse Look Sensitivity = 5.5
+Offline Camera Eye Forward Offset = 0.18
+Direct Scene Load Delay Seconds = 1.5
+Suppress Preference Exceptions = true
+
+[Photon]
+App Id Realtime =
+App Id Voice =
+App Id Chat =
+Photon Offline Mode = true
+
+[Server]
+RecNet NameServer Host = http://127.0.0.1:8081
+Install Service Map = true
+Nameserver Gate Mode = force-false
+Auto Create Account And Launch = true
+
+[Signing]
+Disable Signature Verification = true
+Signing Modulus Override =
+

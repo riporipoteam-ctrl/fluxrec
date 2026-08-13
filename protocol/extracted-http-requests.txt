@@ -1,0 +1,7 @@
+GET /api/gameconfigs/v1/all HTTP/1.1
+GET /api/versioncheck/islandedversions HTTP/1.1
+GET /api/versioncheck/v4?v=20260323.14&p=0 HTTP/1.1
+GET /config/1b057e6e-979d-4f30-8856-a386f77c90da HTTP/1.1
+POST /api/v2/projects/7e820bcb-e196-459d-8e62-0ef049a6c5e6/reports HTTP/1.1
+POST /data/events HTTP/1.1
+POST /v1/events HTTP/1.1

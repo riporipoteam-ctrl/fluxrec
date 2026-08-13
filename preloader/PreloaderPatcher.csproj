@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>PreloaderPatcher</AssemblyName>
+    <RootNamespace>FluxRec.Preloader</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <DeployOnBuild Condition="'$(DeployOnBuild)' == ''">false</DeployOnBuild>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)..\plugin\GamePath.props" Condition="Exists('$(MSBuildThisFileDirectory)..\plugin\GamePath.props')" />
+  <PropertyGroup>
+    <GamePath Condition="'$(GamePath)' == '' and '$(RECROOM_PATH)' != ''">$(RECROOM_PATH)</GamePath>
+  </PropertyGroup>
+
+  <Target Name="ValidateGamePath" BeforeTargets="ResolveAssemblyReferences;Build">
+    <Error Condition="'$(GamePath)' == ''" Text="GamePath is not set. Pass -p:GamePath=... or set RECROOM_PATH." />
+    <Error Condition="'$(GamePath)' != '' and !Exists('$(GamePath)\BepInEx\core\BepInEx.Preloader.Core.dll')" Text="GamePath must contain a BepInEx IL2CPP runtime." />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="BepInEx.Core"><HintPath>$(GamePath)\BepInEx\core\BepInEx.Core.dll</HintPath></Reference>
+    <Reference Include="BepInEx.Preloader.Core"><HintPath>$(GamePath)\BepInEx\core\BepInEx.Preloader.Core.dll</HintPath></Reference>
+    <Reference Include="Mono.Cecil"><HintPath>$(GamePath)\BepInEx\core\Mono.Cecil.dll</HintPath></Reference>
+  </ItemGroup>
+
+  <Target Name="DeployPatcher" AfterTargets="Build" Condition="'$(DeployOnBuild)' == 'true'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GamePath)\BepInEx\patchers" />
+  </Target>
+</Project>
+

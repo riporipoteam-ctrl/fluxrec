@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>RecNetPlugin</AssemblyName>
+    <RootNamespace>RecNetPlugin</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <DeployOnBuild Condition="'$(DeployOnBuild)' == ''">false</DeployOnBuild>
+  </PropertyGroup>
+  <Import Project="$(MSBuildThisFileDirectory)GamePath.props" Condition="Exists('$(MSBuildThisFileDirectory)GamePath.props')" />
+  <PropertyGroup>
+    <GamePath Condition="'$(GamePath)' == '' and '$(RECROOM_PATH)' != ''">$(RECROOM_PATH)</GamePath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CompatPlugin.cs" />
+    <Compile Remove="Plugin.cs;Patches\**" />
+    <Reference Include="BepInEx.Core"><HintPath>$(GamePath)\BepInEx\core\BepInEx.Core.dll</HintPath></Reference>
+    <Reference Include="BepInEx.Unity.IL2CPP"><HintPath>$(GamePath)\BepInEx\core\BepInEx.Unity.IL2CPP.dll</HintPath></Reference>
+    <Reference Include="0Harmony"><HintPath>$(GamePath)\BepInEx\core\0Harmony.dll</HintPath></Reference>
+  </ItemGroup>
+  <Target Name="ValidateGamePath" BeforeTargets="ResolveAssemblyReferences;Build">
+    <Error Condition="'$(GamePath)' == ''" Text="GamePath is not set. Pass -p:GamePath=... or set RECROOM_PATH." />
+    <Error Condition="'$(GamePath)' != '' and !Exists('$(GamePath)\BepInEx\core')" Text="GamePath must contain BepInEx\core." />
+  </Target>
+  <Target Name="DeployCompatPlugin" AfterTargets="Build" Condition="'$(DeployOnBuild)' == 'true'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(GamePath)\BepInEx\plugins" />
+  </Target>
+</Project>

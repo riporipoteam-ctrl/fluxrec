@@ -1,0 +1,20 @@
+{
+  "steamAppId": 471710,
+  "steamDepotId": 471711,
+  "steamManifestId": "7859140924515540835",
+  "files": {
+    "RecRoom.exe": {
+      "size": 653824,
+      "sha256": "EA53A04EE3E35C8239266D737D44EF4323563C1B862D3F24C5A111D50A547BB1"
+    },
+    "GameAssembly.dll": {
+      "size": 150765568,
+      "sha256": "DA7649561A940FE1EC3DEF4EBE85AF11C7518AA3D0FE923CF04D168AA3F84ECF"
+    },
+    "RecRoom_Data/il2cpp_data/Metadata/global-metadata.dat": {
+      "size": 31176616,
+      "sha256": "588953ABFD91DD45F798F26CABDA5DD62572933207886CAE44FCA9A7828AA617"
+    }
+  }
+}
+

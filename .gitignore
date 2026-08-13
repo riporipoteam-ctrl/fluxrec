@@ -1,0 +1,47 @@
+# Local configuration and secrets
+.env
+GamePath.props
+*.key
+*.pem
+*.pfx
+*.crt
+
+# Local player/account state
+*.db
+*.db-*
+*.sqlite*
+runtime/
+logs/
+*.log
+*.pid
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# .NET
+**/bin/
+**/obj/
+
+# Game/runtime files are acquired locally and never committed
+game/
+RecRoom*/
+BepInEx/
+dotnet/
+*.dll
+*.exe
+*.bundle
+*.assets
+*.resS
+*.resource
+global-metadata.dat
+plugin/Assets/Loading/Activity_Image_Orientation.png
+
+# Editor and OS files
+.vs/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
