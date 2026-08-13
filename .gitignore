@@ -39,6 +39,11 @@ dotnet/
 global-metadata.dat
 plugin/Assets/Loading/Activity_Image_Orientation.png
 
+# Verified Flux Rec binaries built from this repository are publishable.
+!dist/
+!dist/*.dll
+!dist/*.zip
+
 # Editor and OS files
 .vs/
 .vscode/

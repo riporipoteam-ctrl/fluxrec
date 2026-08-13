@@ -11,6 +11,8 @@ Flux Rec is the reproducible source and local-hosting stack for the legacy PC cl
 - `scripts/` — portable Windows installation, build, validation, and launch scripts.
 - `server/data/avataritems.json` — the local avatar item catalogue used by the API.
 - `protocol/` — reverse-engineering notes used to implement the compatible service.
+- `dist/` — verified binaries built from this repository and a project-owned runtime package.
+- `depot-file-manifest.csv` — path, size, category, and SHA-256 for all 7,593 files in the development depot.
 
 ## What is deliberately not in this repository
 
@@ -37,6 +39,8 @@ Copy-Item .env.example .env
 The installer verifies the expected game files, creates a Python virtual environment, installs backend dependencies, builds both C# projects against local BepInEx/interop assemblies, deploys the two DLLs, and writes a safe plugin configuration. It never copies the proprietary depot into this repository.
 
 Run `scripts\Test-FluxRec.ps1` to compile and smoke-test the backend and build both C# projects without launching the game.
+
+To acquire the compatible depot through Steam entitlement checks, use `scripts\Acquire-CompatibleDepot.ps1`. To compare a local depot with the complete development inventory, use `scripts\Verify-DepotManifest.ps1`.
 
 ## Configuration
 
